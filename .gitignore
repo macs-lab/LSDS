@@ -1,0 +1,4 @@
+slip_severity/learned_models/*
+slip_severity/datasets/*
+slip_severity/scripts/eval.py
+slip_severity/scripts/__pycache__

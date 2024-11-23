@@ -1,1 +1,87 @@
-This repository has minimal code for LSDS implementation
+# LSDS Codebase
+
+This repository contains minimal code for implementing and trying out LSDS networks and algorithms. The project is organized to enable easy training, evaluation, and further customization of the codebase.
+
+## Slip Severity Training
+
+## Prerequisites
+
+1. **Install Dependencies**: Ensure you have Python 3.8 or above and install the required Python packages.
+
+2. **Dataset Structure**: Ensure your dataset is placed in the `datasets/` directory. For example:
+   ```
+   datasets/
+   ├── test_1/
+   ├── test_2/
+   ├── test_3/
+   ```
+
+3. **Environment Variables**: Verify dataset paths in the scripts are correct.
+
+---
+
+## Running Training
+
+To train the LSTM model for LSDS:
+
+1. Navigate to the project root (if in different folder)
+   ```bash
+   cd /path/to/LSDS
+   ```
+
+2. Run the training script:
+   ```bash
+   python slip_severity/scripts/main.py
+   ```
+
+By default, training is enabled in the `main.py` script. Ensure the following flags are set:
+```python
+train_flag = True
+eval_flag = False
+```
+
+---
+
+<!-- ## Running Evaluation
+
+To evaluate the trained model on test datasets:
+
+1. Ensure the model weights are saved in `slip_severity/learned_models/
+
+2. Run the evaluation script:
+   ```bash
+   python slip_severity/scripts/main.py
+   ```
+
+Enable evaluation mode in `main.py` by setting:
+```python
+train_flag = False
+eval_flag = True
+```
+
+Note that eval has not been implemented, however one may implement it the way one wants in scripts
+
+--- -->
+
+## Outputs
+
+- **Training**:
+  - Model weights will be saved to `slip_severity/Lstm_Mar11.pth`.
+  - Training logs will be printed to the console.
+
+<!-- - **Evaluation**:
+  - Metrics such as MAE, RMSE, and R² are printed for each test trajectory.
+  - Plots for predicted vs. ground truth values are displayed. -->
+
+---
+
+## Troubleshooting
+
+1. **Module Not Found**: Ensure you're running the scripts from the project root:
+   ```bash
+   python slip_severity/scripts/main.py
+   ```
+
+2. **FileNotFoundError**: Verify your dataset paths and structure match the expected format.
+
+3. **Custom Dataset**: Update dataset paths and feature indices in `train.py` and `eval.py` to match your data.
