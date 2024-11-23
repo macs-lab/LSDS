@@ -2,6 +2,8 @@
 
 This repository contains minimal code for implementing and trying out LSDS networks and algorithms. The project is organized to enable easy training, evaluation, and further customization of the codebase.
 
+---
+
 ## Slip Severity Training
 
 ## Prerequisites
@@ -75,6 +77,59 @@ Note that eval has not been implemented, however one may implement it the way on
 
 ---
 
+## Slip Detection Training
+
+### Prerequisites
+
+1. **Install Dependencies**: Ensure you have Python 3.8 or above and install the required Python packages specified in `requirements.txt`.
+
+2. **Dataset Structure**: Place your datasets in the `datasets/` directory under `slip_detection/`. The expected directory structure is:
+
+   ```
+   slip_detection/
+   ├── datasets/
+   │   ├── NoSlip/
+   │   │   ├── file1.csv
+   │   │   ├── file2.csv
+   │   ├── Slip/
+   │   │   ├── file3.csv
+   │   │   ├── file4.csv
+   │   ├── Grasp/      # If applicable
+   │   │   ├── file5.csv
+   ```
+
+3. **Environment Variables**: Verify dataset paths in the scripts are correct.
+
+---
+
+### Running Training
+
+To train the Slip Detection model:
+
+1. Navigate to the `slip_detection` directory:
+
+   ```bash
+   cd /path/to/LSDS/slip_detection
+   ```
+
+2. Run the training script:
+
+   ```bash
+   python scripts/train.py
+   ```
+
+   By default, the training script will process the datasets, train the models, and save them to the `trained_models/` directory.
+
+---
+
+### Outputs
+
+- **Training**:
+  - Trained models will be saved in the `trained_models/` directory, e.g., `trained_models/gb_w_grasp.sav`.
+  - Training metrics and accuracy scores will be printed to the console.
+
+---
+
 ## Troubleshooting
 
 1. **Module Not Found**: Ensure you're running the scripts from the project root:
@@ -84,4 +139,5 @@ Note that eval has not been implemented, however one may implement it the way on
 
 2. **FileNotFoundError**: Verify your dataset paths and structure match the expected format.
 
-3. **Custom Dataset**: Update dataset paths and feature indices in `train.py` and `eval.py` to match your data.
+3. **Custom Dataset**: Update dataset paths and feature indices in training script
+

@@ -2,3 +2,10 @@ slip_severity/learned_models/*
 slip_severity/datasets/*
 slip_severity/scripts/eval.py
 slip_severity/scripts/__pycache__
+slip_detection/datasets/*
+slip_detection/trained_models/*
+
+!slip_severity/learned_models/.gitkeep
+!slip_severity/datasets/.gitkeep
+!slip_detection/datasets/.gitkeep
+!slip_detection/trained_models/.gitkeep
