@@ -8,7 +8,23 @@ This repository contains minimal code for implementing and trying out LSDS netwo
 
 ## Prerequisites
 
-1. **Install Dependencies**: Ensure you have Python 3.8 or above and install the required Python packages.
+1. **Install Dependencies**: Ensure you have Python 3.8 or above and install the required Python packages (can be installed in base env but conda env recommended for better project management)
+
+```bash
+# Step 0: Download Miniconda (or) Ananconda for your linux distribution (Google the steps, pretty straightforward)
+
+# Step 1: Create a new conda environment
+conda create -n lsds python=3.8 -y
+
+# Step 2: Activate the environment
+conda activate lsds
+
+# Step 3: Use pip to install packages from requirements.txt
+pip install -r requirements.txt
+
+# Step 4: Verify the installations (optional)
+conda list
+```
 
 2. **Dataset Structure**: Ensure your dataset is placed in the `datasets/` directory. For example:
    ```
@@ -20,27 +36,25 @@ This repository contains minimal code for implementing and trying out LSDS netwo
 
 3. **Environment Variables**: Verify dataset paths in the scripts are correct.
 
+In case of Module not found error, go to the LSDS directory and run this in the terminal. This should fix the error.
+```bash
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+```
 ---
 
 ## Running Training
 
 To train the LSTM model for LSDS:
 
-1. Navigate to the project root (if in different folder)
-   ```bash
-   cd /path/to/LSDS
-   ```
-
-2. Run the training script:
+1. Run the training script:
    ```bash
    python slip_severity/scripts/main.py
    ```
 
-By default, training is enabled in the `main.py` script. Ensure the following flags are set:
-```python
-train_flag = True
-eval_flag = False
-```
+2. By default, training is enabled in the `main.py` script. Ensure you run the script this way. You can set different flags according to your use case.
+   ```python
+   python slip_severity/scripts/main.py --train
+   ```
 
 ---
 
@@ -68,7 +82,7 @@ Note that eval has not been implemented, however one may implement it the way on
 ## Outputs
 
 - **Training**:
-  - Model weights will be saved to `slip_severity/Lstm_Mar11.pth`.
+  - Model weights will be saved to `slip_severity/learned_models/<your_model_name>.pth`.
   - Training logs will be printed to the console.
 
 <!-- - **Evaluation**:
@@ -79,11 +93,9 @@ Note that eval has not been implemented, however one may implement it the way on
 
 ## Slip Detection Training
 
-### Prerequisites
+Same prerequisites as Slip Severity Training
 
-1. **Install Dependencies**: Ensure you have Python 3.8 or above and install the required Python packages specified in `requirements.txt`.
-
-2. **Dataset Structure**: Place your datasets in the `datasets/` directory under `slip_detection/`. The expected directory structure is:
+1. **Dataset Structure**: Place your datasets in the `datasets/` directory under `slip_detection/`. The expected directory structure is:
 
    ```
    slip_detection/
@@ -98,7 +110,7 @@ Note that eval has not been implemented, however one may implement it the way on
    │   │   ├── file5.csv
    ```
 
-3. **Environment Variables**: Verify dataset paths in the scripts are correct.
+2. **Environment Variables**: Verify dataset paths in the scripts are correct.
 
 ---
 
@@ -106,13 +118,7 @@ Note that eval has not been implemented, however one may implement it the way on
 
 To train the Slip Detection model:
 
-1. Navigate to the `slip_detection` directory:
-
-   ```bash
-   cd /path/to/LSDS/slip_detection
-   ```
-
-2. Run the training script:
+1. Run the training script:
 
    ```bash
    python scripts/train.py

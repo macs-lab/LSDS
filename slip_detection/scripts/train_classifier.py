@@ -63,7 +63,8 @@ def load_data(
                 file_path = os.path.join(path, filename)
                 df = pd.read_csv(file_path, delimiter=",", header=None)
                 # Assuming columns are indexed from 0
-                features = df.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+                features = df.iloc[1:, [2, 3, 4, 5,
+                                        6, 7, 8, 9, 10, 11, 12, 13, 14]]
                 data_list.append(features)
                 target_list.extend([0] * len(features))
         except Exception as e:
@@ -75,7 +76,8 @@ def load_data(
         for filename in os.listdir(slip_path):
             file_path = os.path.join(slip_path, filename)
             df = pd.read_csv(file_path, delimiter=",", header=None)
-            features = df.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+            features = df.iloc[1:, [2, 3, 4, 5,
+                                    6, 7, 8, 9, 10, 11, 12, 13, 14]]
             data_list.append(features)
             target_list.extend([1] * len(features))
     except Exception as e:
@@ -171,7 +173,8 @@ def evaluate_models(
         logging.info(f"Precision: {precision:.2f}%")
         logging.info(f"Recall: {recall:.2f}%")
         logging.info(f"F1 Score: {f1:.2f}%")
-        logging.debug(f"Classification Report for {model_name}:\n{classification_report(Y_test, y_pred)}")
+        logging.debug(
+            f"Classification Report for {model_name}:\n{classification_report(Y_test, y_pred)}")
 
     # Optionally, more detailed reports or visualizations can be added here
 
@@ -212,10 +215,10 @@ def main():
     # Configuration
     config = {
         "no_slip_paths": [
-            "./slip_detection/datasets/Classifier_train/NoSlip",
-            "./slip_detection/datasets/Classifier_train/Grasp",
+            "./slip_detection/datasets/NoSlip",
+            "./slip_detection/datasets/Grasp",
         ],
-        "slip_path": "./slip_detection/datasets/Classifier_train/Slip",
+        "slip_path": "./slip_detection/datasets/Slip",
         "test_size": 0.25,
         "random_state": 10,
         "model_save_dir": "./slip_detection/trained_models/",
@@ -234,7 +237,8 @@ def main():
     X_train, X_test, Y_train, Y_test = train_test_split(
         X, Y, test_size=config["test_size"], random_state=config["random_state"]
     )
-    logging.info(f"Training samples: {len(Y_train)}, Testing samples: {len(Y_test)}")
+    logging.info(
+        f"Training samples: {len(Y_train)}, Testing samples: {len(Y_test)}")
 
     # Train models
     rf_model, gb_model = train_models(X_train, Y_train)
