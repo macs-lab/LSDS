@@ -215,10 +215,11 @@ def main():
     # Configuration
     config = {
         "no_slip_paths": [
-            "./slip_detection/datasets/NoSlip",
-            "./slip_detection/datasets/Grasp",
+            # Add your own path to the dataset folder (sample given as an example)
+            "./slip_detection/datasets/sample_dataset/NoSlip",
+            "./slip_detection/datasets/sample_dataset/Grasp",
         ],
-        "slip_path": "./slip_detection/datasets/Slip",
+        "slip_path": "./slip_detection/datasets/sample_dataset/Slip",
         "test_size": 0.25,
         "random_state": 10,
         "model_save_dir": "./slip_detection/trained_models/",

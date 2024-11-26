@@ -1,6 +1,6 @@
-# LSDS Codebase
+# [LSDS](https://arxiv.org/abs/2411.07442) Codebase (Click on the link to go to the research paper)
 
-This repository contains minimal code for implementing and trying out LSDS networks and algorithms. The project is organized to enable easy training, evaluation, and further customization of the codebase.
+This repository contains minimal code for implementing and trying out Learned Slip-Detection-Severity networks and algorithms. The project is organized to enable easy training, evaluation, and further customization of the codebase.
 
 ---
 

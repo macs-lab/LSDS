@@ -9,6 +9,7 @@ from slip_severity.learning_utils.eval_utils import evaluate_Test_trajectories
 import os
 import pandas as pd
 
+# Add the appropriate dataset and model saving paths here
 DATA_DIR = os.path.abspath(os.path.join(
     os.path.dirname(__file__), '../../slip_severity/datasets/'))
 MODEL_PATH = os.path.abspath(os.path.join(
@@ -16,7 +17,8 @@ MODEL_PATH = os.path.abspath(os.path.join(
 
 
 def train():
-    main_folders = ['SlipScore_new', 'SlipScore_Mar10']
+    # Functionality for loading data from multiple folders (for multiple runs)
+    main_folders = ['sample_dataset']
     trajectories = load_data_from_folders(main_folders, DATA_DIR)
     dataset = TrajectoryDataset(trajectories, seq_length=5, features_indices=[
                                 23, 8, 9, 10, 11, 12, 13, 16, 17], target_index=24)
